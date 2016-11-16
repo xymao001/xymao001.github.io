@@ -40,6 +40,7 @@ var checkCashingStyle = function (feature, latlng){
 }
 
 var checkCashingInteraction = function(feature,layer){
+
   var highlight = {
         stroke: true,
         color: '#ffffff', 
