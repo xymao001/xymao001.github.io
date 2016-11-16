@@ -79,6 +79,12 @@ layer.on("click",function(e){
         layer.setStyle(clickHighlight); 
     });
 
+var checkCashingCustomStuff = L.geoJson(null, {
+    pointToLayer: checkCashingStyle,
+    onEachFeature: checkCashingInteraction
+});
+
+var checkCashingLayer = omnivore.csv('CheckCashing.csv', null, checkCashingCustomStuff).addTo(map);
 
 
 
