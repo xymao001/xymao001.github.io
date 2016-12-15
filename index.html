@@ -1,29 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Leaflet Example</title>
-    <meta charset="utf-8" />
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<style>
+body {
+    overflow: hidden;
+}
 
+body * {
+   -webkit-touch-callout: none;
+     -webkit-user-select: none;
+        -moz-user-select: none;
+         -ms-user-select: none;
+             user-select: none;
+}
 
-  </head>
+.map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+</style>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
 
-	 <body>
-  	<div id="map"></div>
+<div id='before' class='map'></div>
+<div id='after' class='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoieHltYW8iLCJhIjoiY2l0MGEzdHhvMGw2dDJvcGdmZWpkb2JjaCJ9.lfxSmwWduESoJPEL58KWtg';
+var beforeMap = new mapboxgl.Map({
+    container: 'before',
+    style: 'mapbox://styles/xymao/ciwqrprq500072qrx7yq8yj1c',
+    center: [-73.996589, 40.719190],
+    zoom: 13
+});
 
-	<div id="list"></div>
+var afterMap = new mapboxgl.Map({
+    container: 'after',
+    style: 'mapbox://styles/xymao/ciwqrgkwb007x2qo7pckdm59g',
+    center: [-73.996589, 40.719190],
+    zoom: 13
+});
 
- <script type="text/javascript" src="libraries/leaflet-0.7.3/leaflet.js"></script>
-  
-  <script type="text/javascript" src="libraries/jQuery/jquery-1.11.2.min.js"></script>
-  
-  <script type="text/javascript" src="libraries/d3/d3.min.js"></script>
-  
-  <script type="text/javascript" src="libraries/underscore/underscore-min.js"></script>
+var map = new mapboxgl.Compare(beforeMap, afterMap, {
+    // Set this to enable comparing two maps by mouse movement:
+    // mousemove: true
+});
+</script>
+   <div id='legend1' class='legend1'>
+    <h4>Tree rolor in fall</h4>
+<div><span style='background-color: #50795F'></span>forevergreen</div>
+    <div><span style='background-color: #B45F04'></span>oak</div>
+    <div><span style='background-color: #FFBF00'></span>cherry</div>
+    <div><span style='background-color: #FACC2E'></span>maple</div>
+    <div><span style='background-color: #FE9A2E'></span>honeylocust</div>
+    <div><span style='background-color: #FE2E2E'></span>ash</div>
+  </div>
+</script>
+   <div id='legend2' class='legend2'>
+    <h4>Tree rolor in spring</h4>
 
-   <script type="text/javascript" src="js/script.js"></script>
+<div><span style='background-color: #50795F'></span>forevergreen</div>
+    <div><span style='background-color: #04B431'></span>oak</div>
+    <div><span style='background-color: #F5A9F2'></span>cherry</div>
+    <div><span style='background-color: #BEF781'></span>maple</div>
+    <div><span style='background-color: #BEF781'></span>honeylocust</div>
+    <div><span style='background-color: #BEF781'></span>ash</div>
+  </div>
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-  </body>
-
+</body>
 </html>
+
